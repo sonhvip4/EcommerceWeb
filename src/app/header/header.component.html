@@ -1,0 +1,76 @@
+<!-- <nav class="nav nav-pills">
+  <a class="nav-link" routerLink="todos" routerLinkActive="active" *ngIf="auth.loggedIn">Todo List</a>
+  <a class="nav-link" routerLink="users" routerLinkActive="active" *ngIf="auth.loggedIn">Users</a>
+  <a class="nav-link" routerLink="login" routerLinkActive="active" *ngIf="!auth.loggedIn">Login</a>
+  <a class="nav-link" (click)="logout()" href="#" *ngIf="auth.loggedIn">Logout</a>
+</nav> -->
+<div class="header">
+    <div class="wrap">
+  <div class="header_top">
+    <div class="logo">
+      <a href="index.html"><img src="assets/images/logo.png" /></a>
+    </div>
+      <div class="header_top_right">
+          <div class="search_box">
+            <span>Search</span>
+             <form>
+               <input type="text" value=""><input type="submit" value="">
+             </form>
+             <div class="clear"></div>
+           </div>
+    </div>
+     <div class="clear"></div>
+    </div>     
+    <div class="navigation">
+      <a class="toggleMenu" href="#">Menu</a>
+    <ul class="nav">
+      <li>
+        <a href="#">Trang chủ</a>
+      </li>
+      <li  class="test">
+        <a href="#">Giới thiệu</a>
+      </li>
+      <li>
+        <a href="#">Khuyến mãi</a>
+      </li>
+      <li>
+        <a routerLink="user-info" routerLinkActive="active" *ngIf="auth.loggedIn">Thông tin cá nhân</a>  
+      </li>
+      <li>
+        <a routerLink="admin" routerLinkActive="active" *ngIf="auth.loggedCheckAdmin">Quản lý trang Admin</a>  
+      </li>
+      
+      <li>   
+         <a routerLink="mycart"routerLinkActive="active" *ngIf="auth.loggedIn">Giỏ hàng</a>  
+        </li>
+        <li>   
+          <a  *ngIf="auth.loggedIn">{{username}}</a>  
+         </li>
+      <li>
+        <a routerLink="login" routerLinkActive="active" *ngIf="!auth.loggedIn">Đăng nhập</a>
+        
+        <a class="nav-link" (click)="logout()" href="#" *ngIf="auth.loggedIn">Đăng xuất</a>
+      
+      </li>
+      <li>
+        <a routerLink="register" routerLinkActive="active" *ngIf="!auth.loggedIn">Đăng kí</a>
+       
+      </li>
+    
+    </ul>
+     <span class="left-ribbon"> </span> 
+         <span class="right-ribbon"> </span>    
+    </div>
+     <div class="header_bottom">
+   <div class="slider-text">
+     <h2>Tivi sony mới cập nhập giá hấp dẫn</h2>
+     <p>Tivi với man hình full hd, mới được nhập hàng về<br/> vói giá cực rẻ.</p>
+     <a href="#">Xem chi tiết</a>
+      </div>
+      <div class="slider-img">
+        <img src="assets/images/slider-img.png" alt="" />
+      </div>
+     <div class="clear"></div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="main">
+  <div class="wrap">
+      <div class="preview-page">
+          <div class="section group">
+              <div class="cont-desc span_1_of_2">
+                  <ul class="back-links">
+                    <li><a [routerLink]="['/']">Trang chủ</a> ::</li>
+                    <li><a >Thông tin cá nhân</a> </li>                 
+                      <div class="clear"> </div>
+                  </ul>
+
+                  <div class="product-details row">
+                      <div class="img-view col-5 m-0">
+                          <img [src]="info.linkimage" alt="" />
+                          <a>Thay đổi ảnh đại diện</a>
+                          <div class="input-group">
+                              <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                  aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="desc span_3_of_2 col-7 m-0">
+                          <h2>Tên User: {{info.name}}</h2>
+                          <div class="row">
+                              <div class="col-md-7">
+                                  <p>Email: {{info.email}}</p>	
+                              </div>                  
+                            </div>
+                          <div class="row">
+                            <div class="col-md-7">
+                                <p>Địa chỉ: {{info.address}}</p>	
+                            </div>
+                            <div class="col-md-5">
+                                <button type="button" class="btn btn-success">Chỉnh sửa</button>	
+                            </div>                                 	
+                          </div>
+                          <div class="row">
+                              <div class="col-md-7">
+                                  <p>Số điện thoại: {{info.phone}}</p>	
+                              </div>
+                              <div class="col-md-5">
+                                  <button type="button" class="btn btn-success">Chỉnh sửa</button>	
+                              </div>                             
+                            </div> 
+                      </div>
+                      <div class="clear"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+</div>
+<div class="footer">
+  <div class="wrap">	
+  <div class="copy_right">
+   <p>Copy rights (c). All rights Reseverd | Template by  <a href="http://facebook.com" target="_blank">Group 18</a> </p>
+  </div>	
+  <div class="footer-nav">
+    <ul>
+      <li><a href="#">Terms of Use</a> : </li>
+      <li><a href="#">Privacy Policy</a> : </li>
+      <li><a href="contact.html">Contact Us</a> : </li>
+      <li><a href="#">Sitemap</a></li>
+    </ul>
+  </div>		
+   </div>
+</div>

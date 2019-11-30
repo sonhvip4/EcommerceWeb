@@ -1,0 +1,23 @@
+<div class="content_top">
+             
+   <div class="wrap">
+      <h3>Danh mục sản phẩm</h3>
+      
+   </div>
+    <div class="container">
+       <div class="line">
+      <div class="row" >
+         <div class="d-inline">
+            <button class=" border-0 bg-white mt-5" type="submit"><</button>
+         </div>
+         <div *ngFor="let item of categorys" class="m-auto d-inline" >
+             <a href="#" title="img1"> <img class="fix_image" [src]="item.linkimage" alt="" /><p class="ml-3">{{item.name}}</p></a>
+         </div>
+         <div class="d-inline">
+            <button class="border-0 bg-white mt-5" type="submit">></button>
+         </div>
+        
+      </div>                                                              
+    </div>
+ </div>
+</div>

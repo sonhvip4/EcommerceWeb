@@ -1,0 +1,47 @@
+<div class="content_bottom">
+  <div class="wrap">
+    <div class="content-bottom-left">
+      <div class="categories">
+       <ul>
+           <h3>Phân loại</h3>
+            <li><a href="#">100,000 - 200,000</a></li>
+            <li><a href="#">200,000 - 300,000</a></li>
+            <li><a href="#">300,000 - 400,000</a></li>
+            <li><a href="#">400,000 - 500,000</a></li>
+            <li><a href="#">Trên 500,000</a></li>
+         </ul>
+    </div>		
+  
+   
+      <div class="add-banner add-banner2">
+      <img src="assets/images/computer.png" alt="" />
+      <div class="banner-desc">
+        <h4>Computers</h4>
+          <a href="#">More Info</a>
+      </div>
+      <div class="clear"></div>
+    </div>
+    </div>
+    
+    <div class="content-bottom-right">
+    <h3>Các sản phẩm trong cửa hàng</h3>
+      <div class="section group">
+
+          <div class="grid_1_of_4 images_1_of_4" *ngFor="let item of products">
+          <h4><a [routerLink]="['product-detail/', item._id]">{{item.name}}</a></h4>
+            <a [routerLink]="['product-detail/', item._id]"><img [src]="item.linkimage" alt="" class="fix_product"/></a>
+            <div class="price-details">
+              <div class="price-number">
+              <p><span class="rupees">{{item.price}} </span></p>
+              </div>
+                    <div class="add-cart">								
+                  <a [routerLink]="['mycart']"><i class="fa fa-plus-square" aria-hidden="true"></i>Giỏ hàng</a>
+                  </div>
+              <div class="clear"></div>
+          </div>					 
+        </div>     
+      </div>
+  </div>
+  <div class="clear"></div>
+</div>
+ </div>

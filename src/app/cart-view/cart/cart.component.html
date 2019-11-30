@@ -1,0 +1,105 @@
+<div class="main">
+    <div class="wrap">
+        <div class="preview-page">
+            <div class="section group">
+                <div class="cont-desc span_1_of_2" style="background-color: #eeeeee;">
+                    <ul class="back-links">
+                      <li><a [routerLink]="['/']">Trang Chủ</a> ::</li>
+                        <li>Giỏ Hàng</li>
+                        <div class="clear"> </div>
+                    </ul>
+  
+                    <div class="product-details row">
+                        <div class="col-md-8">
+                           <div class="row">
+                              <div class="table-responsive mr-2">
+                                  <table class="table ml-2 bg-white">
+                                      <tbody>
+                                          <tr *ngFor="let item of orders">
+                                              <td><img [src]="item.linkimage"  class="fix-image"/> </td>
+                                              <td>{{item.name}}</td>
+                                              <td>{{item.dateorder}}</td>
+                                              <td class="text-center">            
+                                                  <input class="form-control-sm text-center ml-1 mr-1" type="number"  value="1" maxlength="3" size="3" min="1" style="width: 50px;" >  
+                                              </td>
+                                              <td class="text-right">{{item.price}}</td>
+                                              <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                                          </tr>
+                                          
+                                        </tbody>
+                                    </table>
+                                </div>
+                             </div>
+    
+                          </div>
+                          <div class="col-md-4 bg-white">
+                            <div class="border-bottom">
+                              <p>
+                                <span>Tạm tính: </span>
+                                <strong class="float-right">{{sum_price}} đồng.</strong>
+                              </p>
+                            </div><br>
+                            <div class="mb-3">
+                              <p>
+                                <span>Thành tiền: </span>
+                                <strong class="float-right">{{sum_price}} đồng.</strong>
+                              </p>
+                            </div><br>
+                            <a type="button" class="btn btn-danger btn-block" (click)="myfunc($event)">Tiến hành đặt hàng</a>
+    
+                            
+                            </div>
+                      </div>
+                    
+                  </div>
+                  <div class="rightsidebar span_3_of_1 sidebar">
+                      <h3>Sản Phẩm Phổ Biến</h3>
+                      <ul class="popular-products">
+                          <li>
+                              <h4><a href="preview.html">Samsung s10 </a></h4>
+                              <a href="preview.html"><img src="https://cdn.tgdd.vn/Products/Images/42/161554/samsung-galaxy-s10-white-600x600.jpg" alt="" /></a>
+                              <div class="price-details">
+                                  <div class="price-number">
+                                      <p><span class="rupees line-through">5.000.000 </span> &nbsp; <span
+                                              class="rupees">5.000.000 </span></p>
+                                  </div>
+                                  <div class="add-cart">
+                                      <h4><a href="preview.html">More Info</a></h4>
+                                  </div>
+                                  <div class="clear"></div>
+                              </div>
+                          </li>
+                          <li>
+                              <h4><a href="preview.html">Giày nam đẹp </a></h4>
+                              <a href="preview.html"><img src="https://www.brotherconcept.com/wp-content/uploads/2018/01/BRC0617001-8-1-e1520687648569.jpg" alt="" /></a>
+                              <div class="price-details">
+                                  <div class="price-number">
+                                      <p><span class="rupees line-through">50.000 </span> &nbsp; <span
+                                              class="rupees">50.000 </span></p>
+                                  </div>
+                                  <div class="add-cart">
+                                      <h4><a href="preview.html">More Info</a></h4>
+                                  </div>
+                                  <div class="clear"></div>
+                              </div>
+                          </li>
+                          <li>
+                              <h4><a href="preview.html">Mazda 5 </a></h4>
+                              <a href="preview.html"><img src="https://cdnxehoi.vatgia.vn/thumb/600/2019/05/1558669714-can-ban-xe-mazda-cx-5-nam-2019-mau-den-uu-dai-hon-50-trieu-dong1-picture5324.jpg" alt="" /></a>
+                              <div class="price-details">
+                                  <div class="price-number">
+                                      <p><span class="rupees line-through">1.000.000.000 </span> &nbsp; <span
+                                              class="rupees">1.000.000.000 </span></p>
+                                  </div>
+                                  <div class="add-cart">
+                                      <h4><a href="preview.html">More Info</a></h4>
+                                  </div>
+                                  <div class="clear"></div>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>

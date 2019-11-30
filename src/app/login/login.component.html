@@ -1,0 +1,30 @@
+<h4 *ngIf="error">{{error}}</h4>
+<div id="logreg-forms">
+    <form class="form-signin" (ngSubmit)="submit()">
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Đăng nhập</h1>
+        <div class="social-login">
+          <div class="row">
+            <div class="col-md-6 pl-3 pr-0">
+                <a href="/auth/facebook" class="btn facebook-btn social-btn" type="button"><span><i class="fa fa-facebook mr-2 d-inline"></i> Sign in with Facebook</span> </a>
+            
+            </div>
+            <div class="col-md-6 pl-0">
+                <a href="/auth/google" class="btn google-btn social-btn" type="button"><span><i class="fa fa-google mr-2 d-inline"></i> Sign in with Google</span> </a>
+            </div>
+              
+          </div>
+        </div>
+        <p style="text-align:center"> OR  </p>
+       
+        <input type="text" class="form-control" placeholder="Nhập tên đăng nhập..." name="uname" required [(ngModel)]="email">    
+        <input type="password"  class="form-control" placeholder="Nhập mật khẩu..." name="psw" required [(ngModel)]="password" >
+        <button class="btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+        <a href="#" id="forgot_pswd">Forgot password?</a>
+        <hr>
+        <!-- <p>Don't have an account!</p>  -->
+        <a [routerLink]="['/register']" class="btn btn-primary text-white btn-block" type="button" id="btn-signup">Đăng kí tài khoản</a>
+        </form>
+
+        <br>
+        
+</div>
