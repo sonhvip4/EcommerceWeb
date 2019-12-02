@@ -89,10 +89,38 @@ export class AuthService {
   }
 
   public get loggedIn(): boolean {
+    try{
+    const decoded = jwt_decode(localStorage.getItem('access_token'));
+    if (decoded.exp < Date.now() / 1000){
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('user');
+      localStorage.removeItem('id');
+      localStorage.removeItem('role');
+      return false;
+    }
+  }
+  catch{
+
+  }
+
+    console.log("la:"+Date.now() / 1000);
   
     return (localStorage.getItem('access_token') !== null);
   }
   public get loggedCheckAdmin(): boolean {
+    try{
+      const decoded = jwt_decode(localStorage.getItem('access_token'));
+      if (decoded.exp < Date.now() / 1000){
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('user');
+        localStorage.removeItem('id');
+        localStorage.removeItem('role');
+        return false;
+      }
+    }
+    catch{
+  
+    }
   
     return (localStorage.getItem('role') === "admin");
   }

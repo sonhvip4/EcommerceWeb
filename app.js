@@ -17,6 +17,7 @@ var productRouter = require('./routes/productRouter');
 var userRouter = require('./routes/userRouter');
 var cartRouter= require('./routes/cartRouter');
 var orderRouter= require('./routes/orderRouter');
+var ordersuccessRouter= require('./routes/orderSuccessRouter');
 
 var app = express();
 //test login google
@@ -65,7 +66,8 @@ app.use('/apiproduct',productRouter);
 app.use('/auth',userRouter);
 app.use('/apicart',cartRouter);
 app.use('/apiorder',orderRouter);
-
+app.use('/apiuser',userRouter);
+app.use('/apiordersuccess',ordersuccessRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

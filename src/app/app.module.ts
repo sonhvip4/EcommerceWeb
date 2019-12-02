@@ -10,6 +10,7 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookCreateComponent } from './book-create/book-create.component';
 import { BookEditComponent } from './book-edit/book-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 // login jwt
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './api/auth.guard';
@@ -49,7 +50,7 @@ import { QluserCreateComponent } from './admin/qluser/qluser-create/qluser-creat
 import { QluserEditComponent } from './admin/qluser/qluser-edit/qluser-edit.component';
 import { QlproductCreateComponent } from './admin/qlproduct/qlproduct-create/qlproduct-create.component';
 import { QlproductEditComponent } from './admin/qlproduct/qlproduct-edit/qlproduct-edit.component';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 const appRoutes: Routes = [
   {
@@ -176,6 +177,7 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+
     AppComponent,
     BookComponent,
     BookDetailComponent,
@@ -204,6 +206,7 @@ const appRoutes: Routes = [
     QluserComponent
   ],
   imports: [
+
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     FormsModule,

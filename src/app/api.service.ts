@@ -42,6 +42,17 @@ export class ApiService {
     return this.http.get(apicategory,httpOptions).pipe(map(this.extractData),catchError(this.handleError));
   }
 
+  //user
+  getUser(): Observable<any>{
+    return this.http.get("/apiuser/admin/alluser",httpOptions).pipe(map(this.extractData),catchError(this.handleError));
+  }
+
+  //ordersuccess
+  getOrderSuccess(): Observable<any>{
+    return this.http.get("/apiordersuccess/admin/allorder",httpOptions).pipe(map(this.extractData),catchError(this.handleError));
+  }  
+
+
   //product
   getProduct(): Observable<any>{
     return this.http.get(apiproduct,httpOptions).pipe(map(this.extractData),catchError(this.handleError));

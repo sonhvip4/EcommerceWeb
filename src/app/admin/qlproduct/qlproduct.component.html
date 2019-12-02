@@ -81,6 +81,7 @@
     </div>
   </form>
   <ul class="nav menu" id="nav-1">
+      <li id="li-1" ><a routerLink="../../admin"><em class="fa fa-dashboard">&nbsp;</em> Trang chủ</a></li>
       <li id="li-1" ><a routerLink="../../admin/qluser"><em class="fa fa-dashboard">&nbsp;</em> Quản lý User</a></li>
       <li id="li-1"><a routerLink="../../admin/qlproduct"><em class="fa fa-calendar">&nbsp;</em> Quản lý sản phẩm</a></li>
       <li id="li-1"><a routerLink="../../admin/qlorder"><em class="fa fa-bar-chart">&nbsp;</em> Quản lý đơn hàng</a></li>
@@ -91,6 +92,12 @@
 <!--/.sidebar-->
 
 <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+  <div class="row">
+    <div class="col-md-4">
+      <button routerLink="../qlproduct/create" class="btn btn-primary btn-block text-white"><i class="fa fa-plus mr-2"></i>Thêm Sản Phẩm</button>
+    </div>
+  </div>
+  <br/>
 
   <div class="row">
     <div class="col-md-12">
@@ -127,8 +134,7 @@
             <div class="row">
               <div class="col-md-12">
                 <div class="panel panel-default">
-
-                  <table class="table table-bordered table-striped ">
+                  <table class="table table-bordered ">
                     <tr>
                       <th>
                         <div class="form-check">
@@ -142,56 +148,30 @@
                       <th>GIÁ</th>
                       <th>MÀU SẮC</th>
                       <th>HÌNH ẢNH</th>
+                      <th>Tùy chọn</th>
                     </tr>
-                    <tr>
+                    <tr *ngFor="let item of products">
                       <td>
                         <div class="form-check">
                           <input type="checkbox" class="form-check-input m-auto" id="exampleCheck1">
                         </div>
                       </td>
-                      <td>1</td>
-                      <td>Nguyễn Văn A</td>
-                      <td>link</td>
-                      <td>A@gmail.com</td>
-                      <td>123456</td>
-                      <td>123 số 1</td>
-                      <td>012351424</td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input m-auto" id="exampleCheck1">
-                        </div>
+                      <td>{{item._id}}</td>
+                      <td>{{item.name}}</td>
+                      <td>{{item.code}}</td>
+                      <td>{{item._description}}</td>
+                      <td>{{item.price}}</td>
+                      <td>{{item.color}}</td>
+                      <td><div class="comment">{{item.linkimage}}</div></td>
+                      <td><a href="" class="btn btn-warning ml-3"><i class="fa fa-pencil"></i></a>
+                        <a href="" class="btn btn-warning ml-3"><i class="fa fa-trash"></i></a>
                       </td>
-                      <td>1</td>
-                      <td>Nguyễn Văn A</td>
-                      <td>link</td>
-                      <td>A@gmail.com</td>
-                      <td>123456</td>
-                      <td>123 số 1</td>
-                      <td>012351424</td>
-                      <td></td>
                     </tr>
+                    
+                  </table> 
 
-                    <tr>
-                      <td>
-                        <div class="form-check">
-                          <input type="checkbox" class="form-check-input m-auto" id="exampleCheck1">
-                        </div>
-                      </td>
-                      <td>1</td>
-                      <td>Nguyễn Văn A</td>
-                      <td>link</td>
-                      <td>A@gmail.com</td>
-                      <td>123456</td>
-                      <td>123 số 1</td>
-                      <td>012351424</td>
-                      <td></td>
-                    </tr>
-                  </table>
-
-                </div>
+                   
+                 
               </div>
             </div>
             <!--/.row-->
@@ -204,24 +184,12 @@
   <!--/.row-->
 
 </div>
-<!--/.main-->
 
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/chart.min.js"></script>
-<script src="js/chart-data.js"></script>
-<script src="js/easypiechart.js"></script>
-<script src="js/easypiechart-data.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/custom.js"></script>
-<script>
-  window.onload = function () {
-    var chart1 = document.getElementById("line-chart").getContext("2d");
-    window.myLine = new Chart(chart1).Line(lineChartData, {
-      responsive: true,
-      scaleLineColor: "rgba(0,0,0,.2)",
-      scaleGridLineColor: "rgba(0,0,0,.05)",
-      scaleFontColor: "#c5c7cc"
-    });
-  };
-</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+  $(".comment").shorten({
+  "showChars" : 200,
+  "moreText" : "...",
+  });
+  </script>
+<!--/.main-->
