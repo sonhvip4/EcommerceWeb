@@ -10,7 +10,7 @@ var router = express.Router();
 const checkAuth = require("../config/check-auth");
 
 router.post("/signup", (req, res, next) => {
-
+console.log(req.body);
   User.find({ email: req.body.email })
     .exec()
     .then(user => {
@@ -55,6 +55,52 @@ router.post("/signup", (req, res, next) => {
       }
     });
 });
+router.post("/adduser",checkAuth(2), (req, res, next) => {
+  console.log(req.body);
+    User.find({ email: req.body.email })
+      .exec()
+      .then(user => {
+        if (user.length >= 1) {
+          return res.status(409).json({
+            message: "Mail exists"
+          });
+        } else {
+          bcrypt.hash(req.body.password, 10, (err, hash) => {
+            if (err) {
+              return res.status(500).json({
+                error: err
+              });
+            } else {
+  
+              const user = new User({
+                _id: new mongoose.Types.ObjectId(),
+                email: req.body.email,
+                name: req.body.firstName+ req.body.lastName,
+                linkimage: "https://st.quantrimang.com/photos/image/072015/22/avatar.jpg",
+                address: req.body.address,
+                phone: req.body.phone,
+                password: hash,
+                role: req.body.role
+              });
+              user
+                .save()
+                .then(result => {
+                  console.log(result);
+                  res.status(201).json({
+                    message: "User created"
+                  });
+                })
+                .catch(err => {
+                  console.log(err);
+                  res.status(500).json({
+                    error: err
+                  });
+                });
+            }
+          });
+        }
+      });
+  });
 router.post("/login", (req, res, next) => {
   console.log(res.body);
   User.find({ email: req.body.email })

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../api/auth.service';
+import { ApiService } from '../../../api.service';
 import { Router } from '@angular/router';
-import { first } from 'rxjs/operators';
-import { NgForm } from '@angular/forms';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 
 // import custom validator to validate that password and confirm password fields match
 //import { MustMatch } from './_helpers/must-match.validator';
@@ -19,7 +17,7 @@ export class QluserCreateComponent implements OnInit {
   registerForm: FormGroup;
     submitted = false;
 
-    constructor(private formBuilder: FormBuilder) { }
+    constructor(private router: Router, private api: ApiService,private formBuilder: FormBuilder) { }
 
     ngOnInit() {
         this.registerForm = this.formBuilder.group({
@@ -30,7 +28,7 @@ export class QluserCreateComponent implements OnInit {
             confirmPassword: ['', Validators.required],
             address: ['', Validators.required],
             phone: ['', Validators.required],
-            role: ['User', Validators.required],
+            role: ['user', Validators.required],
             
 
         }, {
@@ -39,17 +37,35 @@ export class QluserCreateComponent implements OnInit {
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.registerForm.controls; }
+     get f() { return this.registerForm.controls; }
 
-    onSubmit() {
+    onSubmit(form:NgForm) {
         this.submitted = true;
 
         // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
         }
+        console.log(JSON.stringify(this.registerForm.value));
+        this.api.addUser(JSON.stringify(this.registerForm.value))
+            .subscribe(res => {
+                this.router.navigate(['/admin/qluser']);
+            },(err)=>{
+            console.log(err);
+            });
 
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))
     }
+
+    // onSubmit(form:NgForm) {
+    //     this.api.addUser(this.registerForm.value)
+    //     .subscribe(res => {
+    //         let id = res['_id'];
+    //         this.router.navigate(['/admin/qluser',id]);
+    //     },(err)=>{
+    //     console.log(err);
+    //     });
+    // }
+
  
 }

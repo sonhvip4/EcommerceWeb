@@ -79,6 +79,13 @@ export class ApiService {
       catchError(this.handleError));
   }
 
+  addUser(data):Observable<any>{
+    return this.http.post('apiuser/adduser',data,httpOptions)
+    .pipe(
+      catchError(this.handleError)
+      );
+  }
+
   postBook(data): Observable<any> {
     return this.http.post(apiUrl, data, httpOptions)
       .pipe(
